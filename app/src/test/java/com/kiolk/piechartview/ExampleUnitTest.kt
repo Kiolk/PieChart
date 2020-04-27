@@ -1,4 +1,4 @@
-package com.kiolk.piechart
+package com.kiolk.piechartview
 
 import org.junit.Test
 

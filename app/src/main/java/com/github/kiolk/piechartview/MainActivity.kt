@@ -1,7 +1,8 @@
-package com.kiolk.piechart
+package com.github.kiolk.piechartview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.github.kiolk.piechartview.R
 
 class MainActivity : AppCompatActivity() {
 
