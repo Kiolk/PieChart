@@ -22,6 +22,8 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
     private lateinit var paint: Paint
     private var size: Int = 0
     private var radius: Int = 0
+    private var heightDiff = 0
+    private var widthDiff = 0
     private var pieWidth: Float = DEFAULT_PIE_WIDTH
     @ColorInt
     private var circleBackGround: Int = DEFAULT_CIRCLE_BACKGROUND
@@ -57,6 +59,12 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
             else -> defaultHeight
         }
 
+        if(selectedHeight > selectedWidth) {
+            heightDiff = (selectedHeight - selectedWidth) / 2
+        }else {
+            widthDiff = (selectedWidth - selectedHeight) / 2
+        }
+
         val sideSize = min(selectedHeight, selectedWidth)
         size = sideSize
         radius = size / 2
@@ -78,9 +86,9 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
     private fun drawSector(canvas: Canvas?, sector: Sector) {
         canvas?.apply {
             paint.color = sector.color
-            drawArc(0F, 0F, size.toFloat(), size.toFloat(), sector.startAngle, sector.sweepAngle, true, paint)
+            drawArc(0F + widthDiff, 0F + heightDiff , size.toFloat() + widthDiff, size.toFloat() + heightDiff, sector.startAngle, sector.sweepAngle, true, paint)
             paint.color = circleBackGround
-            drawArc(pieWidth, pieWidth, size - pieWidth, size - pieWidth, sector.startAngle, sector.sweepAngle, true, paint)
+            drawArc(pieWidth + widthDiff, pieWidth + heightDiff, size - pieWidth + widthDiff, size - pieWidth + heightDiff, sector.startAngle, sector.sweepAngle, true, paint)
         }
     }
 
