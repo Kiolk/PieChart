@@ -71,7 +71,6 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
         setMeasuredDimension(sideSize, sideSize)
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         canvas?.apply {
@@ -79,16 +78,21 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
             preparedData.forEach{ sector ->
                 drawSector(this, sector)
             }
+            drawCentralArea(this)
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun drawSector(canvas: Canvas?, sector: Sector) {
         canvas?.apply {
             paint.color = sector.color
             drawArc(0F + widthDiff, 0F + heightDiff , size.toFloat() + widthDiff, size.toFloat() + heightDiff, sector.startAngle, sector.sweepAngle, true, paint)
+        }
+    }
+
+    private fun drawCentralArea(canvas: Canvas?) {
+        canvas?.apply {
             paint.color = circleBackGround
-            drawArc(pieWidth + widthDiff, pieWidth + heightDiff, size - pieWidth + widthDiff, size - pieWidth + heightDiff, sector.startAngle, sector.sweepAngle, true, paint)
+            drawArc(pieWidth + widthDiff, pieWidth + heightDiff, size - pieWidth + widthDiff, size - pieWidth + heightDiff, 0f, 360f, true, paint)
         }
     }
 
@@ -125,7 +129,7 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
         private val COSTAL_BREEZE : Int = 0XFFDFF9FB.toInt()
         private val TURBO : Int = 0XFFF9CA24.toInt()
         private val QUINCE_JELLY : Int = 0XFFF0932B.toInt()
-        private val CARMINE_PINK : Int = 0XFFEB4D4B.toInt()
+        private const val CARMINE_PINK : Int = 0XFFEB4D4B.toInt()
         private val PURE_APPLE : Int = 0XFF6AB04C.toInt()
         private val HINT_OF_ICE_PACK : Int = 0XFFC7ECEE.toInt()
         private val MIDDLE_BLUE : Int = 0XFF7ED6DF.toInt()
