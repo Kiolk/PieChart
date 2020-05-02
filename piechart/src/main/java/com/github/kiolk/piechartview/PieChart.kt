@@ -5,11 +5,9 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
-import androidx.annotation.RequiresApi
 import kotlin.math.min
 
 class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attr, defStyleAttr) {
@@ -120,28 +118,26 @@ class PieChart @JvmOverloads constructor(context: Context, attr: AttributeSet? =
     companion object {
         private const val DEFAULT_PIE_WIDTH = 60f
         private const val DEFAULT_CIRCLE_BACKGROUND = Color.WHITE
-
-        //TODO check correct present Hex for int variables
-        private val BEEKEEPER : Int = 0xFFF6E58D.toInt()
-        private val SPICED_NECTARINE : Int = 0xFFffbe76.toInt()
-        private val JUNE_BUD : Int = 0XFFBADC58.toInt()
-        private val PINK_GLAMOUR : Int = 0XFFFF7979.toInt()
-        private val COSTAL_BREEZE : Int = 0XFFDFF9FB.toInt()
-        private val TURBO : Int = 0XFFF9CA24.toInt()
-        private val QUINCE_JELLY : Int = 0XFFF0932B.toInt()
+        private const val BEEKEEPER : Int = 0xFFF6E58.toInt()
+        private const val SPICED_NECTARINE = 0xFFffbe76.toInt()
+        private const val JUNE_BUD : Int = 0XFFBADC58.toInt()
+        private const val PINK_GLAMOUR : Int = 0XFFFF7979.toInt()
+        private const val COSTAL_BREEZE : Int = 0XFFDFF9FB.toInt()
+        private const val TURBO : Int = 0XFFF9CA24.toInt()
+        private const val QUINCE_JELLY : Int = 0XFFF0932B.toInt()
         private const val CARMINE_PINK : Int = 0XFFEB4D4B.toInt()
-        private val PURE_APPLE : Int = 0XFF6AB04C.toInt()
-        private val HINT_OF_ICE_PACK : Int = 0XFFC7ECEE.toInt()
-        private val MIDDLE_BLUE : Int = 0XFF7ED6DF.toInt()
-        private val HELIOTROPE : Int = 0XFFE056FD.toInt()
-        private val EXODUCE_FRUIT : Int = 0XFF686DE0.toInt()
-        private val DEEP_COAMARU : Int = 0XFF30336B.toInt()
-        private val SOARING_IGGLE : Int = 0XFF95AFC0.toInt()
-        private val GREENLAND_GREEN : Int = 0XFF22A6B3.toInt()
-        private val STEEL_PINK : Int = 0XFFBE2EDD.toInt()
-        private val BLURPLE : Int = 0XFFBE2EDD.toInt()
-        private val DEEP_COVE : Int = 0XFF130F40.toInt()
-        private val WIZARD_GRAY : Int = 0XFF535C68.toInt()
+        private const val PURE_APPLE : Int = 0XFF6AB04C.toInt()
+        private const val HINT_OF_ICE_PACK : Int = 0XFFC7ECEE.toInt()
+        private const val MIDDLE_BLUE : Int = 0XFF7ED6DF.toInt()
+        private const val HELIOTROPE : Int = 0XFFE056FD.toInt()
+        private const val EXODUCE_FRUIT : Int = 0XFF686DE0.toInt()
+        private const val DEEP_COAMARU : Int = 0XFF30336B.toInt()
+        private const val SOARING_IGGLE : Int = 0XFF95AFC0.toInt()
+        private const val GREENLAND_GREEN : Int = 0XFF22A6B3.toInt()
+        private const val STEEL_PINK : Int = 0XFFBE2EDD.toInt()
+        private const val BLURPLE : Int = 0XFFBE2EDD.toInt()
+        private const val DEEP_COVE : Int = 0XFF130F40.toInt()
+        private const val WIZARD_GRAY : Int = 0XFF535C68.toInt()
 
         private val DEFAULT_COLOR_LIST = listOf(
             BEEKEEPER, SPICED_NECTARINE, JUNE_BUD, PINK_GLAMOUR, COSTAL_BREEZE, TURBO, QUINCE_JELLY,
